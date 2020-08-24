@@ -1,0 +1,124 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabu}
+\usepackage{xcolor}
+\usepackage{tikz, tikz-qtree}
+\usepackage{graphviz}
+\usepackage{subfig}
+
+\usepackage{mleftright}
+\mleftright
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+\newenvironment{solution}{\begin{proof}[\textnormal{\textbf{Solution}}]}{\end{proof}}
+\newenvironment{exercise}[1]{\begin{proof}[\textnormal{\textbf{Exercise #1:}}]\renewcommand{\qedsymbol}{}}{\end{proof}}
+\newenvironment{lemma}{\begin{proof}[\textnormal{\textbf{Lemma}}]\phantom{\qedhere}}{\end{proof}}
+
+\newcommand{\bigO}[1]{\mathcal{O}\left(#1\right)}
+\newcommand{\bigOm}[1]{\Omega\left(#1\right)}
+\newcommand{\bigTh}[1]{\Theta\left(#1\right)}
+\newcommand{\set}[1]{\left\lbrace#1\right\rbrace}
+\newcommand{\ith}[1]{#1^{\text{th}}}
+
+\renewcommand\thesubfigure{\arabic{subfigure}}
+
+\begin{document}
+\begin{titlepage}\pagenumbering{gobble}
+    \centering
+    {\scshape\LARGE University of Houston\par}
+    \vspace{1cm}
+    {\scshape\Large Homework 0 \par}
+    \vspace{1.5cm}
+    {\huge\bfseries COSC 6320 \par}
+    {\huge\bfseries Algorithms and Data Structures \par}
+    \vspace{0.5cm}
+    {\large\bfseries Gopal Pandurangan\par}
+    \vspace{2cm}
+    {\Large NAME\par}
+    \vspace{0.5cm}
+    {\large \par} September 03, 2020
+    \vfill
+
+    % Bottom of the page
+\end{titlepage}
+\vspace*{\fill}\begin{center}{\Huge This page intentionally left blank.}\end{center}\vspace*{\fill}\thispagestyle{empty}\clearpage
+\pagenumbering{arabic}
+
+\begin{exercise}{A.6}
+    Consider the set of the first \(2n\) positive integers, i.e., \(A = \set{1, 2, \hdots, 2n}\). Take any subset \(S\) of \(n + 1\) distinct numbers from set \(A\). Show that there are two numbers in \(S\) such that one divides the other.
+\end{exercise}
+
+\begin{solution}
+    TYPE SOLUTION HERE.
+\end{solution}
+
+\begin{exercise}{2.3}
+    Rank the following functions by order of growth; that is, find an arrangment \(g_1, g_2, \hdots\) of the functions satisfying \(g_1 = \bigO{g_2}\), \(g_2 = \bigO{g_3}\), \(\hdots\).
+
+    \[n^2, \frac{n}{\log{n}}, n\log{n}, 1.001^n, \frac{1}{n^2}, \log^{100}{n}, \frac{1}{\log{n}}, 4^{\lg{n}}, n!, n^{\lg{\lg{n}}}, n^{1.6}, 2^{\sqrt{\log{n}}}\]
+
+    Note: \(\lg\) or \(\log\) denotes the base-2 logarithm and that \(log^k{n}\) denotes \((\log{n})^k\).
+\end{exercise}
+
+\begin{solution}
+    TYPE SOLUTION HERE.
+\end{solution}
+
+\begin{exercise}{2.11}
+
+    You have the task of heating up \(n\) buns in a pan. A bun has two sides and each side has to be heated up separately in the pan. The pan is small and can hold only (at most) two buns at a time. Heating one side of a bun takes 1 minute, regardless of whether you heat up one or two buns at the same time. The goal is to heat up both sides of all \(n\) buns in the minimum amount of time. Suppose you use the following recursive algorithm for heating up (both sides) of all \(n\) buns. If \(n = 1\), then heat up the bun on both sides;  if \(n = 2\), then heat the two buns together on each side; if \(n > 2\), then heat up any two buns together on each side and recursively apply the algorithm to the remaining \(n − 2\) buns.
+
+    \begin{itemize}
+        \item Set up a recurrence for the amount of time needed by the above algorithm. Solve the recurrence.
+        \item Show that the above algorithm does not solve the problem in the minimum amount of time for all \(n >0\).
+        \item Give a correct recursive algorithm that solves the problem in the minimum amount of time.
+        \item Prove the correctness of your algorithm (use induction) and also find the time taken by the algorithm.
+    \end{itemize}
+\end{exercise}
+
+\begin{solution}
+    TYPE SOLUTION HERE
+\end{solution}
+
+\begin{exercise}{4.1(c)}
+    Prove the following recurrence is \(bigO{n\log{n}}\). Assume that the base cases of the recurrence is constants, i.e., \(T(n) = \bigTh{1}\) for \(n < c\) for some constant \(c\).
+    \[T(n) = T\left(\frac{5n}{6}\right) + T\left(\frac{n}{6}\right) + n\]
+\end{exercise}
+
+\begin{solution}
+    TYPE SOLUTION HERE
+\end{solution}
+
+\begin{exercise}{4.8}
+    Give a recursive algorithm to compute \(2^n\) (in decimal) for a given integer \(n > 0\). Your algorithm should perform only \(\bigO{\log n}\) integer multiplications.
+\end{exercise}
+
+\begin{solution}
+    TYPE SOLUTION HERE
+\end{solution}
+
+\begin{exercise}{B.6}
+    A strange number is one whose only prime factors are in the set \(\set{2, 3, 5}\). Give an efficient algorithm (give pseudocode) that uses a binary heap data structure to output the \(\ith{n}\) strange number. Explain why your algorithm is correct and analyze the run time of your algorithm. (Hint: Consider generating the strange numbers in increasing order, i.e., \(2,3,4,5,6,8,9,10,12,15\), etc,. Show how to efficiently generate the next strange number using a heap).
+\end{exercise}
+
+\end{document}
+
